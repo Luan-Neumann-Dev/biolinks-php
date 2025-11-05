@@ -15,6 +15,11 @@ class LoginController extends Controller
 
     public function login()
     {
+        request()->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
         if ($user = User::where('email', request('email'))->first()) {
             if (Hash::check(request('password'), $user->password)) {
                 auth()->login($user);
@@ -23,6 +28,6 @@ class LoginController extends Controller
             }
         }
 
-        return back()->with(['message' => 'Não encontrado']);
+        return back()->with(['message' => 'Não foi possível realizar o login.']);
     }
 }
