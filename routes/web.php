@@ -8,3 +8,8 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/dashboard', fn() => 'dashboard::' . auth()->id())
+    ->middleware('auth')
+    ->name('dashboard');
