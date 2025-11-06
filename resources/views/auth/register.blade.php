@@ -6,7 +6,7 @@
         <br>
     @endif
 
-    <form action="{{route('login')}}" method="post">
+    <form action="{{route('register')}}" method="post">
         @csrf
 
         <div>
