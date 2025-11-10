@@ -29,4 +29,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/links/{link}/edit', [LinkController::class, 'edit'])->name('links.edit');
     Route::post('/links/{link}/edit', [LinkController::class, 'update']);
+
+    Route::delete('/links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
 });
