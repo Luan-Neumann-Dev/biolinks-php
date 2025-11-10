@@ -31,4 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/links/{link}/edit', [LinkController::class, 'update']);
 
     Route::delete('/links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
+
+    Route::patch('/links/{link}/up', [LinkController::class, 'up'])->name('links.up');
+    Route::patch('/links/{link}/down', [LinkController::class, 'down'])->name('links.down');
 });
